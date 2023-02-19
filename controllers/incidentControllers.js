@@ -17,13 +17,13 @@ const incidentControllers = {
         });
       },
       post:(req, res) => {
-        const { incident, caller, contact, location,status} = req.body;
-        if (!incident || !caller || !contact || !location || !status ) {
+        const { needof, incident, caller, contact, location,status} = req.body;
+        if (!needof || !incident || !caller || !contact || !location || !status ) {
           res.json({ message: "Requried Fields are missing." });
           return;
         }
         const objToSend = {
-            incident, caller, contact, location, status
+            needof, incident, caller, contact, location, status
         };
         console.log(objToSend, "objToSend");
       
@@ -59,11 +59,11 @@ const incidentControllers = {
           }
         });
       },
-      update:(req, res) => {
-    const {_id, name, price , size, category, bio, image } = req.body;
+      accept:(req, res) => {
+    const {_id, status } = req.body;
     incidentModel.findByIdAndUpdate(
       _id,
-      {name, price , size, category, bio, image },
+      { status },
       { new: true },
       (error, data) => {
         if (error) {
@@ -73,7 +73,7 @@ const incidentControllers = {
             });
           } else {
             res.json({
-              message: "product successfully updated!",
+              message: "Successfully Accepted!",
               data: data,
               status: true,
             });

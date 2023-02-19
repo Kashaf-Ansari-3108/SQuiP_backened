@@ -18,6 +18,7 @@ router.post("/adminlogin", adminAuthControllers.login);
 router.get("/admin/:id",adminControllers.getOne);
 router.post("/incident",incidentControllers.post);
 router.get("/incident",incidentControllers.get);
+router.put("/incident",incidentControllers.accept);
 
 
 module.exports = router;

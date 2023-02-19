@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const incidentSchema = mongoose.Schema({
+needof: {
+        type: String,
+        required: true,
+      },
   incident: {
     type: String,
     required: true,
