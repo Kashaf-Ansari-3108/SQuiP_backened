@@ -1,4 +1,4 @@
-const adminModel = require('../models/userSchema');
+const adminModel = require('../models/adminSchema');
 
 const adminControllers = {
     getOne:(req, res) => {
