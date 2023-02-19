@@ -1,4 +1,6 @@
 const express = require('express');
+const adminAuthControllers = require('../controllers/adminAuthControllers');
+const adminControllers = require('../controllers/adminControllers');
 const router = express.Router();
 const authControllers = require('../controllers/authControllers');
 const userControllers = require('../controllers/userControllers');
@@ -10,6 +12,9 @@ router.get("/sample", (req, res) => {
 router.post("/signup", authControllers.signUp);
 router.post("/login", authControllers.login);
 router.get("/user/:id",userControllers.getOne);
+router.post("/adminsignup", adminAuthControllers.signUp);
+router.post("/adminlogin", adminAuthControllers.login);
+router.get("/admin/:id",adminControllers.getOne);
 
 
 module.exports = router;
